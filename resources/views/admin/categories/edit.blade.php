@@ -1,4 +1,5 @@
 @extends('admin/a_layout/main')
+
 @section('headSection')
     <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
 
@@ -27,6 +28,7 @@
                         <div class="card-header">
                             <h3 class="card-title">Titles</h3>
                         </div>
+
                         @if(count($errors) >0)
                             @foreach($errors->all() as $error)
                                 <p class="alert alert-danger">{{$error}}</p>
@@ -37,19 +39,22 @@
 {{--                        @if (session()->has('message'))--}}
 {{--                            <p class="alert-default-success">{{session('message')}}</p>--}}
 {{--                        @endif--}}
-
-                        <form role="form" action="{{route('category.store')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('category.update',$cat->id)}}" method="post" enctype="multipart/form-data">
 
                             {{csrf_field()}}
+                            {{method_field('PATCH')}}
                             <div class="card-body">
+
                                 <div class="form-group">
                                     <label for="name">Category name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Category name">
+                                    <input type="text" class="form-control" id="title" name="name" placeholder="name"
+                                           value="{{$cat->name}}">
                                 </div>
 
 
+
+
                             </div>
-                            <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>

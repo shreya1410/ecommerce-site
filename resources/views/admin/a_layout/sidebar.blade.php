@@ -20,7 +20,7 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Category</a></li>
-                    <li class="active"><a  href="#"><i class="fa fa-circle-o"></i>Product</a></li>
+                    <li class="active"><a  href="{{route('product.index')}}"><i class="fa fa-circle-o"></i>Product</a></li>
 
                     <li><a href="#"><i class="fa fa-circle-o"></i> User</a></li>
                 </ul>

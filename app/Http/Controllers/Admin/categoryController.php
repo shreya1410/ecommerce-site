@@ -26,7 +26,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-
+        return view('admin/categories/create');
     }
 
     /**
@@ -37,7 +37,15 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+           'name'=>'required'
+        ]);
+
+        $category = new category;
+        $category->name= $request->name;
+        $category->save();
+
+        return redirect(route('category.index'));
     }
 
     /**
@@ -59,7 +67,9 @@ class categoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $cat = category::where('id',$id)->first();
+        return view('admin/categories/edit',compact('cat'));
+
     }
 
     /**
@@ -71,7 +81,15 @@ class categoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request,[
+            'name'=>'required'
+        ]);
+
+        $category =  category::find($id);
+        $category->name= $request->name;
+        $category->save();
+
+        return redirect(route('category.index'));
     }
 
     /**
@@ -82,6 +100,7 @@ class categoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        category::where('id',$id)->delete();
+        return redirect()->back();
     }
 }

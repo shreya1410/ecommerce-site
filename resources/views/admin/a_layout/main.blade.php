@@ -11,6 +11,8 @@
     @section('main-content')
     @show
 
+
+    @include('admin/a_layout/footer')
 </div>
 </body>
 </html>

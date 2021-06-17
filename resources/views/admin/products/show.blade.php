@@ -48,7 +48,7 @@
 
 
                     <div class="text-center">
-                      <a class='col-lg-offset-5 btn btn-success' href="{{route('category.create')}}"> Add New category</a>
+                        <a class='col-lg-offset-5 btn btn-success' href="{{route('product.create')}}"> Add New product</a>
                     </div>
 
                     <div class="card-tools">
@@ -71,22 +71,28 @@
                                 <thead>
                                 <tr>
                                     <th>Sr. No</th>
-                                    <th>category name</th>
+                                    <th>product name</th>
+                                    <th>product description</th>
+                                    <th>product price</th>
+                                    <th>Image</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
-                                @foreach($categories as $cat)
+                                @foreach($products as $pro)
                                     <tr>
                                         <td>{{$loop->index +1}}</td>
-                                        <td>{{$cat->name}}</td>
-                                        <td><a href ="{{route('category.edit',$cat->id)}}"> Edit</a></td>
+                                        <td>{{$pro->name}}</td>
+                                        <td>{{$pro->description}}</td>
+                                        <td>{{$pro->price}}</td>
+                                        <td><img src="/image/{{ $pro->image }}" width="70px"></td>
+                                        <td><a href ="{{route('product.edit',$pro->id)}}"> Edit</a></td>
                                         <td>
-                                            <form id="delete-form-{{$cat->id}}"
+                                            <form id="delete-form-{{$pro->id}}"
                                                   method="post"
-                                                  action="{{route('category.destroy',$cat->id)}}"
+                                                  action="{{route('product.destroy',$pro->id)}}"
                                                   style="display: none">
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
@@ -94,7 +100,7 @@
                                             <a href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
                                                 {
                                                 event.preventDefault();
-                                                document.getElementById('delete-form-{{$cat->id}}').submit();
+                                                document.getElementById('delete-form-{{$pro->id}}').submit();
                                                 }else
                                                 {
                                                 event.preventDefault();
