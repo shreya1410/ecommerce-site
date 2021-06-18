@@ -1,3 +1,4 @@
+
 @extends('admin/a_layout/main')
 @section('headSection')
     <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">

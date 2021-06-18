@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\categoryController;
 use App\Http\Controllers\Admin\productController;
+use App\Http\Controllers\Admin\AdminUserController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,6 +27,7 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 
 Route::resource('admin/category',categoryController::class);
 Route::resource('admin/product',productController::class);
+Route::resource('admin/adminuser',AdminUserController::class);
 
 
 Auth::routes();

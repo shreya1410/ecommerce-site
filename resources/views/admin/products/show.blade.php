@@ -6,11 +6,11 @@
 @extends('admin/a_layout/main')
 
 @section('headSection')
-    <link rel="stylesheet" href="{{asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{asset("admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
 
-    <link rel="stylesheet" href="{{asset("plugins/datatables-bs4/css/dataTables.bootstrap4.min.css") }}">
-    <link rel="stylesheet" href="{{asset("plugins/datatables-responsive/css/responsive.bootstrap4.min.css") }}">
-    <link rel="stylesheet" href="{{asset("plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{asset("admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{asset("admin/plugins/datatables-responsive/css/responsive.bootstrap4.min.css") }}">
+    <link rel="stylesheet" href="{{asset("admin/plugins/datatables-buttons/css/buttons.bootstrap4.min.css") }}">
 
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -87,7 +87,11 @@
                                         <td>{{$pro->name}}</td>
                                         <td>{{$pro->description}}</td>
                                         <td>{{$pro->price}}</td>
-                                        <td><img src="/image/{{ $pro->image }}" width="70px"></td>
+{{--                                        <td><img src="/storage/app/public/{{ $pro->image }}" width="70px"></td>--}}
+{{--                                       <td> <img src="/storage/{{$pro->image}}"></td>--}}
+{{--                                        <td><img src ="{{ asset('storage/'.$pro->image) }}"></td>--}}
+
+                                                <td><img src="{{$pro->image}}" alt="{{$pro->image}}" width="70px"></td>
                                         <td><a href ="{{route('product.edit',$pro->id)}}"> Edit</a></td>
                                         <td>
                                             <form id="delete-form-{{$pro->id}}"

@@ -1,3 +1,5 @@
+
+@include('layouts.app')
 @extends('admin/a_layout/main')
 
 @section('headSection')

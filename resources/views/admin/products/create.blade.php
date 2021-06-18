@@ -1,5 +1,9 @@
+
 @extends('admin/a_layout/main')
+
 @section('headSection')
+
+
     <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
 
     <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -45,7 +49,7 @@
 
                                 <div class="form-group">
                                     <label>Categories</label>
-                                    <select  name="category[]" class=" form-control select2 select2-hidden-accessible" multiple=""
+                                    <select  name="category[]"  class="form-control select2 select2-hidden-accessible" multiple=""
                                              data-placeholder="Select a category" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                         @foreach($categories as $cat)
                                             <option value="{{$cat->id}}">{{$cat->name}}</option>
@@ -55,17 +59,17 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Product name</label>
-                                    <input type="text" class="form-control" id="name" name="name" placeholder="Category name">
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="Category name" value="{{old('name')}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="description">Product description</label>
-                                    <input type="text" class="form-control" id="description" name="description" placeholder="description">
+                                    <input type="text" class="form-control" id="description" name="description" placeholder="description" value="{{old('description')}}">
                                 </div>
 
                                 <div class="form-group">
                                     <label for="price">Product price</label>
-                                    <input type="text" class="form-control" id="price" name="price" placeholder="price">
+                                    <input type="text" class="form-control" id="price" name="price" placeholder="price" value="{{old('price')}}">
                                 </div>
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">

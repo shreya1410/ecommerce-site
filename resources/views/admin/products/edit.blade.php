@@ -1,4 +1,5 @@
 
+
 @extends('admin/a_layout/main')
 
 @section('headSection')
@@ -84,8 +85,8 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Image:</strong>
-                                        <input type="file" name="image" class="form-control" placeholder="image">
-                                        <img src="/image/{{ $product->image }}" width="100px">
+                                        <input type="file" name="image"  id="image" class="form-control" placeholder="image">
+                                        <img src="{{ $product->image }}" width="100px">
                                     </div>
                                 </div>
 

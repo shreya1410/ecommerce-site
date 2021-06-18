@@ -40,24 +40,26 @@ class productController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-           'name'=>'required',
-           'description'=>'required',
-           'price'=>'required'
+            'name'=>'required',
+            'description'=>'required',
+            'price'=>'required',
+            'image'=>'required',
         ]);
 
-        $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
+        if($request->hasFile('image')){
+            //storage/app/public store
+            $imageName =$request->image->store('public');
         }
+        $product = new product;
+        $product->image = $imageName;
+        $product->name= $request->name;
+        $product->description= $request->description;
+        $product->price = $request->price;
 
-        product::create($input);
+        $product->save();
+        $product->categories()->sync($request->category);
 
-        return redirect()->route('product.index')
-            ->with('success','Product created successfully.');
+        return  redirect(route('product.index'));
     }
 
     /**
@@ -79,7 +81,7 @@ class productController extends Controller
      */
     public function edit($id)
     {
-      //  $product = product::where('id',$id)->first();
+        //  $product = product::where('id',$id)->first();
         $product = product::with('categories')->where('id',$id)->first();
         $categories = category::all();
         return view('admin/products/edit',compact('categories','product'));
@@ -92,31 +94,31 @@ class productController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, product $product)
+    public function update(Request $request, $id)
     {
-        $request->validate([
+        $this->validate($request,[
             'name'=>'required',
             'description'=>'required',
-            'price'=>'required'
+            'price'=>'required',
+            'image'=>'required'
         ]);
-
-        $input = $request->all();
-
-        if ($image = $request->file('image')) {
-            $destinationPath = 'image/';
-            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
-            $image->move($destinationPath, $profileImage);
-            $input['image'] = "$profileImage";
-        }
-        else{
-            unset($input['image']);
+        if($request->hasFile('image')){
+            //storage/app/public store
+            $imageName =$request->image->store('public');
         }
 
-        $product->update($input);
+        $product =  product::find($id);
+        $product->image= $imageName;
+        $product->name= $request->name;
+        $product->description= $request->description;
+        $product->price = $request->price;
+        $product->categories()->sync($request->category);
+        $product->save();
 
-        return redirect()->route('product.index')
-            ->with('success','Product updated successfully.');
+        return  redirect(route('product.index'));
     }
+
+
 
     /**
      * Remove the specified resource from storage.

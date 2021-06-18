@@ -26,10 +26,14 @@
 <link rel="stylesheet" href="{{asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.css')}}">
 <!-- Morris chart -->
 <link rel="stylesheet" href="{{asset('admin/plugins/morris/morris.css')}}">
+<!-- db-->
+<link rel="stylesheet" href="{{asset('admin/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
 
-
+<!-- nhh-->
 @section('headSection')
+
 @show
+<!-- nhh-->
 
 {{--<link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">--}}
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
