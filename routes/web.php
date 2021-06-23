@@ -6,7 +6,10 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Admin\categoryController;
 use App\Http\Controllers\Admin\productController;
 use App\Http\Controllers\Admin\AdminUserController;
+use App\Http\Controllers\Admin\FileController;
+use App\Http\Controllers\Admin\PagesController;
 
+use App\Http\Controllers\User\UserCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,7 +31,12 @@ Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home
 Route::resource('admin/category',categoryController::class);
 Route::resource('admin/product',productController::class);
 Route::resource('admin/adminuser',AdminUserController::class);
+Route::resource('admin/productimage',FileController::class);
+Route::resource('admin/pages',PagesController::class);
 
+
+Route::get('all_categories',[UserCategoryController::class,'all_categories']);
+Route::get('all_Category_Products',[UserCategoryController::class,'allCategoryProducts']);
 
 Auth::routes();
 

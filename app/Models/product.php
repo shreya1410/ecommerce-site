@@ -11,8 +11,13 @@ class product extends Model
     protected $fillable = [
       'image','name','description','price'
     ];
+//    public function categories()
+//    {
+//        return $this->belongsToMany('App\Models\category','category_products')->withTimestamps();
+//    }
+
     public function categories()
     {
-        return $this->belongsToMany('App\Models\category','category_products')->withTimestamps();
+        return $this->belongsToMany('App\Models\category','product_categories')->withTimestamps();
     }
 }

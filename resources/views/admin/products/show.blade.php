@@ -91,8 +91,12 @@
 {{--                                       <td> <img src="/storage/{{$pro->image}}"></td>--}}
 {{--                                        <td><img src ="{{ asset('storage/'.$pro->image) }}"></td>--}}
 
-                                                <td><img src="{{$pro->image}}" alt="{{$pro->image}}" width="70px"></td>
-                                        <td><a href ="{{route('product.edit',$pro->id)}}"> Edit</a></td>
+                                                <td><img src="{{'/productimg/'.$pro->image}}" alt="{{$pro->image}}" width="70px"></td>
+
+
+
+
+                                        <td><a class="btn btn-warning" href ="{{route('product.edit',$pro->id)}}"> Edit</a></td>
                                         <td>
                                             <form id="delete-form-{{$pro->id}}"
                                                   method="post"
@@ -101,7 +105,7 @@
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                             </form>
-                                            <a href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
+                                            <a class="btn btn-danger" href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
                                                 {
                                                 event.preventDefault();
                                                 document.getElementById('delete-form-{{$pro->id}}').submit();

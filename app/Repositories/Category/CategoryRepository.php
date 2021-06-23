@@ -23,6 +23,7 @@ class CategoryRepository implements CategoryInterface
     {
         $category = new category;
         $category->name = $attributes['name'];
+        $category->category_description = $attributes['category_description'];
         return $category->save();
 
     }

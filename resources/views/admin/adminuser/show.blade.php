@@ -88,7 +88,7 @@
                                         <td>{{$adminuser->admin_email}}</td>
                                         <td>{{$adminuser->contact}}</td>
                                         <td>{{$adminuser->admin_address}}</td>
-                                        <td><a href ="{{route('adminuser.edit',$adminuser->id)}}"> Edit</a></td>
+                                        <td><a class="btn btn-warning" href ="{{route('adminuser.edit',$adminuser->id)}}"> Edit</a></td>
                                         <td>
                                             <form id="delete-form-{{$adminuser->id}}"
                                                   method="post"
@@ -97,7 +97,7 @@
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                             </form>
-                                            <a href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
+                                            <a  class="btn btn-danger" href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
                                                 {
                                                 event.preventDefault();
                                                 document.getElementById('delete-form-{{$adminuser->id}}').submit();

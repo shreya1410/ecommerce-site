@@ -48,6 +48,11 @@
                                     <input type="text" class="form-control" id="name" name="name" placeholder="Category name">
                                 </div>
 
+                                <div class="form-group">
+                                    <label for="name">Category Description</label>
+                                    <input type="text" class="form-control" id="category_description" name="category_description" placeholder="Category description">
+                                </div>
+
 
                             </div>
                             <!-- /.card-body -->

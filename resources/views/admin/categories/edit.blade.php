@@ -52,6 +52,11 @@
                                     <input type="text" class="form-control" id="title" name="name" placeholder="name"
                                            value="{{$cat->name}}">
                                 </div>
+                                <div class="form-group">
+                                    <label for="name">Category description</label>
+                                    <input type="text" class="form-control" id="category_description" name="category_description" placeholder="category description"
+                                           value="{{$cat->category_description}}">
+                                </div>
 
 
 

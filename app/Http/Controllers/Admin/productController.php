@@ -41,18 +41,29 @@ class productController extends Controller
     {
         $request->validate([
             'name'=>'required',
+            'slug'=>'required',
             'description'=>'required',
             'price'=>'required',
             'image'=>'required',
+            'image.*' => 'mimes:jpeg,png,jpg,gif,svg|max:2048'
         ]);
 
-        if($request->hasFile('image')){
-            //storage/app/public store
-            $imageName =$request->image->store('public');
+
+
+        //my code for image upload
+        $file = $request->file('image');
+        if($file->isvalid())
+        {
+            $destinationpath='productimg/';
+            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
+            $file->move($destinationpath,$imageName);
         }
+
         $product = new product;
         $product->image = $imageName;
+     //   $product->image = json_encode($data);
         $product->name= $request->name;
+        $product->slug = $request->slug;
         $product->description= $request->description;
         $product->price = $request->price;
 
@@ -98,18 +109,27 @@ class productController extends Controller
     {
         $this->validate($request,[
             'name'=>'required',
+            'slug'=>'required',
             'description'=>'required',
             'price'=>'required',
             'image'=>'required'
         ]);
-        if($request->hasFile('image')){
-            //storage/app/public store
-            $imageName =$request->image->store('public');
+//        if($request->hasFile('image')){
+//            //storage/app/public store
+//            $imageName =$request->image->store('public');
+//        }
+        $file = $request->file('image');
+        if($file->isvalid())
+        {
+            $destinationpath='productimg/';
+            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
+            $file->move($destinationpath,$imageName);
         }
 
         $product =  product::find($id);
         $product->image= $imageName;
         $product->name= $request->name;
+        $product->slug = $request->slug;
         $product->description= $request->description;
         $product->price = $request->price;
         $product->categories()->sync($request->category);

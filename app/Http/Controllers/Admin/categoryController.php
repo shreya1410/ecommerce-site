@@ -48,7 +48,8 @@ class categoryController extends Controller
         $attributes = $request->except(['_token']);
        // dd($request->except('_token'));
         $this->validate($request,[
-           'name'=>'required'
+           'name'=>'required',
+            'category_description'=>'required'
         ]);
 //
 //        $category = new category;
@@ -94,11 +95,13 @@ class categoryController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'=>'required'
+            'name'=>'required',
+            'category_description'=>'required',
         ]);
-//
+
 //        $category =  category::find($id);
 //        $category->name= $request->name;
+//        $category->category_description= $request->category_description;
 //        $category->save();
 
         $id= $request->get('id',$id);

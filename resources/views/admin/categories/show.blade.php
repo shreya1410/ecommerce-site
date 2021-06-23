@@ -72,6 +72,7 @@
                                 <tr>
                                     <th>Sr. No</th>
                                     <th>category name</th>
+                                    <th>Category Description</th>
                                     <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
@@ -82,7 +83,8 @@
                                     <tr>
                                         <td>{{$loop->index +1}}</td>
                                         <td>{{$cat->name}}</td>
-                                        <td><a href ="{{route('category.edit',$cat->id)}}"> Edit</a></td>
+                                        <td>{{$cat->category_description}}</td>
+                                        <td><a class="btn btn-warning" href ="{{route('category.edit',$cat->id)}}"> Edit</a></td>
                                         <td>
                                             <form id="delete-form-{{$cat->id}}"
                                                   method="post"
@@ -91,7 +93,7 @@
                                                 {{csrf_field()}}
                                                 {{method_field('DELETE')}}
                                             </form>
-                                            <a href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
+                                            <a  class="btn btn-danger" href=""  onclick="if(confirm('ARE YOU SURE ,YOU WANT TO DELETE THIS?'))
                                                 {
                                                 event.preventDefault();
                                                 document.getElementById('delete-form-{{$cat->id}}').submit();

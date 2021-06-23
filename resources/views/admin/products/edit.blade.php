@@ -53,6 +53,11 @@
                                            value="{{$product->name}}">
                                 </div>
                                 <div class="form-group">
+                                    <label for="slug">Product slug</label>
+                                    <input type="text" class="form-control" id="slug" name="slug" placeholder="slug"
+                                           value="{{$product->slug}}">
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Product description</label>
                                     <input type="text" class="form-control" id="title" name="description" placeholder="description"
                                            value="{{$product->description}}">
@@ -85,8 +90,9 @@
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Image:</strong>
-                                        <input type="file" name="image"  id="image" class="form-control" placeholder="image">
-                                        <img src="{{ $product->image }}" width="100px">
+                                        <input type="file" name="image"  id="image" class="form-control" placeholder="image" value="{{ $product->image }}">
+
+                                        <img src="{{'/productimg/'.$product->image}}" width="100px">
                                     </div>
                                 </div>
 
