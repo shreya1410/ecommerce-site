@@ -1,4 +1,5 @@
 
+
 @extends('admin/a_layout/main')
 
 @section('headSection')
@@ -40,32 +41,30 @@
                         {{--                        @if (session()->has('message'))--}}
                         {{--                            <p class="alert-default-success">{{session('message')}}</p>--}}
                         {{--                        @endif--}}
-                        <form role="form" action="{{route('productimage.update',$file->id)}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('maincategory.update',$maincategory->id)}}" method="post" enctype="multipart/form-data">
 
                             {{csrf_field()}}
                             {{method_field('PATCH')}}
                             <div class="card-body">
-                                <div class="form-group">
-                                    <label for="name">Product  name</label>
-                                    <select  name="product[]"  class="form-control select2 select2-hidden-accessible" multiple=""
-                                             data-placeholder="Select a product" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                        @foreach($products as $product)
-                                            <option value="{{$product->name}}">{{$product->name}}</option>
-                                        @endforeach
 
-                                    </select>
+
+                                <div class="form-group">
+                                    <label for="name">Category name</label>
+                                    <input type="text" class="form-control" id="main_category_name" name="main_category_name" placeholder="category name"
+                                           value="{{$maincategory->main_category_name}}">
+                                </div>
+                                <div class="form-group">
+                                    <label for="name">Category description</label>
+                                    <input type="text" class="form-control" id="main_category_description" name="main_category_description" placeholder="category description"
+                                           value="{{$maincategory->main_category_description}}">
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Image:</strong>
-                                        <input type="file" name="fileCollection[]" class="custom-file-input" id="multiImg" multiple="multiple">
-                                        <label class="custom-file-label" for="images">Select File</label>
-                                        <img src="{{asset('/uploads/'.$file->name)}}"  width="70px" />
-{{--                                        <?php foreach (json_decode($file->name) as $pic) { ?>--}}
-{{--                                        <img src="{{asset('/uploads/'.$pic)}}"  width="70px" />--}}
-{{--                                        <?php } ?>--}}
+                                        <input type="file" name="main_category_image"  id="main_category_image" class="form-control" placeholder="image" value="{{ $maincategory->main_category_image }}">
 
+                                        <img src="{{'/mainCategoryImg/'.$maincategory->main_category_image}}" width="100px">
                                     </div>
                                 </div>
 
@@ -74,7 +73,7 @@
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a type="button"  href="{{route('productimage.index')}}" class="btn btn-warning">Back</a>
+                                <a type="button"  href="{{route('maincategory.index')}}" class="btn btn-warning">Back</a>
                             </div>
                         </form>
                     </div>
@@ -88,31 +87,7 @@
         <!-- /.content -->
     </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script>
-    $(function() {
-        var imgPrev = function(input, imgPlaceholder) {
 
-            if (input.files) {
-                var allFiles = input.files.length;
-
-                for (i = 0; i < allFiles; i++) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPlaceholder);
-                    }
-
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        };
-
-        $('#multiImg').on('change', function() {
-            imgPrev(this, 'div.preview');
-        });
-    });
-</script>
 @section('footerSection')
     <script src="{{asset('admin/plugins/select2/sel.js')}}"></script>
     <script>

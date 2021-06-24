@@ -49,18 +49,27 @@ class productController extends Controller
         ]);
 
 
+        if($request->hasfile('image')) {
+            foreach ($request->file('image') as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/uploads/', $name);
+                $data[] = $name;
 
-        //my code for image upload
-        $file = $request->file('image');
-        if($file->isvalid())
-        {
-            $destinationpath='productimg/';
-            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
-            $file->move($destinationpath,$imageName);
+            }
         }
 
-        $product = new product;
-        $product->image = $imageName;
+        //my code for image upload
+//        $file = $request->file('image');
+//        if($file->isvalid())
+//        {
+//            $destinationpath='productimg/';
+//            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
+//            $file->move($destinationpath,$imageName);
+//        }
+
+       $product = new product;
+        $product->image = json_encode($data);
+     //   $product->image = $imageName;
      //   $product->image = json_encode($data);
         $product->name= $request->name;
         $product->slug = $request->slug;
@@ -114,20 +123,26 @@ class productController extends Controller
             'price'=>'required',
             'image'=>'required'
         ]);
-//        if($request->hasFile('image')){
-//            //storage/app/public store
-//            $imageName =$request->image->store('public');
+
+//        $file = $request->file('image');
+//        if($file->isvalid())
+//        {
+//            $destinationpath='productimg/';
+//            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
+//            $file->move($destinationpath,$imageName);
 //        }
-        $file = $request->file('image');
-        if($file->isvalid())
-        {
-            $destinationpath='productimg/';
-            $imageName=date('ymdHis').'.'.$file->getClientOriginalExtension();
-            $file->move($destinationpath,$imageName);
+
+        if($request->hasfile('image')) {
+            foreach ($request->file('image') as $file) {
+                $name = $file->getClientOriginalName();
+                $file->move(public_path() . '/uploads/', $name);
+                $data[] = $name;
+
+            }
         }
 
         $product =  product::find($id);
-        $product->image= $imageName;
+        $product->image= json_encode($data);
         $product->name= $request->name;
         $product->slug = $request->slug;
         $product->description= $request->description;

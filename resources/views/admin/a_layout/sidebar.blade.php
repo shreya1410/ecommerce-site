@@ -21,8 +21,8 @@
             </span>
                 </a>
                 <ul class="treeview-menu">
-{{--                    <li><a href="{{route('imageproduct.index')}}"><i class="fa fa-circle-o"></i> Image for Product</a></li>--}}
-                    <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i>Category</a></li>
+                    <li><a href="{{route('maincategory.index')}}"><i class="fa fa-circle-o"></i> Main Category</a></li>
+                    <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Sub Category</a></li>
                     <li class="active"><a  href="{{route('product.index')}}"><i class="fa fa-circle-o"></i>Product</a></li>
 
                     <li><a href="{{route('adminuser.index')}}"><i class="fa fa-circle-o"></i> User</a></li>

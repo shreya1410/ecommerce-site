@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\productController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\MainCategoryController;
+
 use App\Http\Controllers\Admin\productImageController;
 
 
@@ -24,12 +26,14 @@ use App\Http\Controllers\User\UserCategoryController;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
+Route::resource('admin/maincategory',MainCategoryController::class);
 Route::resource('admin/category',categoryController::class);
 Route::resource('admin/product',productController::class);
 Route::resource('admin/adminuser',AdminUserController::class);

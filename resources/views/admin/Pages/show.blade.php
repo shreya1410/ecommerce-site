@@ -44,47 +44,38 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Title</h3>
+
 
 
                     <div class="text-center">
-                        <a class='col-lg-offset-5 btn btn-success' href="{{route('pages.create')}}"> Add New page</a>
+                        <a class='col-lg-offset-5 btn btn-success' href="{{route('pages.create')}}"> <h3>Add New page</h3></a>
                     </div>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
-                        </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Sr. No</th>
-                                    <th>Page name</th>
-                                    <th>Page content</th>
-                                    <th>Page Image</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th><h2 style="color: #3d0894">Sr. No</h2></th>
+                                    <th><h2 style="color: #3d0894">Page name</h2></th>
+                                    <th><h2 style="color: #3d0894">Page content</h2></th>
+                                    <th><h2 style="color: #3d0894">Page Image</h2></th>
+                                    <th><h2 style="color: #3d0894">Edit</h2></th>
+                                    <th><h2 style="color: #3d0894">Delete</h2></th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($pages as $page)
                                     <tr>
-                                        <td>{{$loop->index +1}}</td>
-                                        <td>{{$page->name}}</td>
-                                        <td>{{$page->contentData}}</td>
+                                        <td><h3>{{$loop->index +1}}</h3></td>
+                                        <td><h3>{{$page->name}}</h3></td>
+                                        <td><h3>{{$page->contentData}}</h3></td>
                                         <td><img src="{{'/aboutUsImg/'.$page->image}}" alt="{{$page->image}}" width="70px"></td>
                                         <td><a class="btn btn-warning" href ="{{route('pages.edit',$page->id)}}"> Edit</a></td>
                                         <td>

@@ -89,14 +89,22 @@
                                 </div>
 
                                 {{-- my code--}}
-                                <div class="col-xs-12 col-sm-12 col-md-12">
-                                    <div class="form-group">
-                                        <strong>Image:</strong>
-                                        <input type="file" name="image" class="form-control" placeholder="image">
-                                    </div>
+{{--                                <div class="col-xs-12 col-sm-12 col-md-12">--}}
+{{--                                    <div class="form-group">--}}
+{{--                                        <strong>Image:</strong>--}}
+{{--                                        <input type="file" name="image" class="form-control" placeholder="image">--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
+
+                                <div class="mb-3 text-center">
+                                    <div class="preview"></div>
                                 </div>
 
-
+                                <div class="custom-file">
+                                    <input type="file" name="image[]" class="custom-file-input" id="multiImg" multiple="multiple">
+                                    <label class="custom-file-label" for="images">Select File</label>
+                                </div>
 
 
 
@@ -119,35 +127,34 @@
         </section>
         <!-- /.content -->
     </div>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script>
-        $(function() {
-            // Multiple images preview with JavaScript
-            var multiImgPreview = function(input, imgPreviewPlaceholder) {
 
-                if (input.files) {
-                    var filesAmount = input.files.length;
-
-                    for (i = 0; i < filesAmount; i++) {
-                        var reader = new FileReader();
-
-                        reader.onload = function(event) {
-                            $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPreviewPlaceholder);
-                        }
-
-                        reader.readAsDataURL(input.files[i]);
-                    }
-                }
-
-            };
-
-            $('#images').on('change', function() {
-                multiImgPreview(this, 'div.imgPreview');
-            });
-        });
-    </script>
 @endsection
 
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(function() {
+        var imgPrev = function(input, imgPlaceholder) {
+
+            if (input.files) {
+                var allFiles = input.files.length;
+
+                for (i = 0; i < allFiles; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPlaceholder);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+
+        $('#multiImg').on('change', function() {
+            imgPrev(this, 'div.preview');
+        });
+    });
+</script>
 @section('footerSection')
     <script src="{{asset('admin/plugins/select2/sel.js')}}"></script>
     <script>

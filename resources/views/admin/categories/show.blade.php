@@ -44,46 +44,35 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Title</h3>
-
 
                     <div class="text-center">
-                      <a class='col-lg-offset-5 btn btn-success' href="{{route('category.create')}}"> Add New category</a>
+                      <a class='col-lg-offset-5 btn btn-success' href="{{route('category.create')}}"><h3> Add New category</h3></a>
                     </div>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
-                        </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Sr. No</th>
-                                    <th>category name</th>
-                                    <th>Category Description</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th><h2 style="color: #3d0894">Sr. No</h2></th>
+                                    <th><h2 style="color: #3d0894">category name</h2></th>
+                                    <th><h2 style="color: #3d0894">Category Description</h2></th>
+                                    <th><h2 style="color: #3d0894">Edit</h2></th>
+                                    <th><h2 style="color: #3d0894">Delete</h2></th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($categories as $cat)
                                     <tr>
-                                        <td>{{$loop->index +1}}</td>
-                                        <td>{{$cat->name}}</td>
-                                        <td>{{$cat->category_description}}</td>
+                                        <td><h2>{{$loop->index +1}}</h2></td>
+                                        <td><h3>{{$cat->name}}</h3></td>
+                                        <td><h3>{{$cat->category_description}}</h3></td>
                                         <td><a class="btn btn-warning" href ="{{route('category.edit',$cat->id)}}"> Edit</a></td>
                                         <td>
                                             <form id="delete-form-{{$cat->id}}"

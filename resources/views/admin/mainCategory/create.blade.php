@@ -1,6 +1,5 @@
 
 @extends('admin/a_layout/main')
-
 @section('headSection')
     <link rel="stylesheet" href="{{asset('admin/plugins/select2/css/select2.min.css')}}">
 
@@ -29,7 +28,6 @@
                         <div class="card-header">
                             <h3 class="card-title">Titles</h3>
                         </div>
-
                         @if(count($errors) >0)
                             @foreach($errors->all() as $error)
                                 <p class="alert alert-danger">{{$error}}</p>
@@ -40,41 +38,34 @@
                         {{--                        @if (session()->has('message'))--}}
                         {{--                            <p class="alert-default-success">{{session('message')}}</p>--}}
                         {{--                        @endif--}}
-                        <form role="form" action="{{route('productimage.update',$file->id)}}" method="post" enctype="multipart/form-data">
+
+                        <form role="form" action="{{route('maincategory.store')}}" method="post" enctype="multipart/form-data">
 
                             {{csrf_field()}}
-                            {{method_field('PATCH')}}
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="name">Product  name</label>
-                                    <select  name="product[]"  class="form-control select2 select2-hidden-accessible" multiple=""
-                                             data-placeholder="Select a product" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                        @foreach($products as $product)
-                                            <option value="{{$product->name}}">{{$product->name}}</option>
-                                        @endforeach
+                                    <label for="name">Category name</label>
+                                    <input type="text" class="form-control" id="main_category_name" name="main_category_name" placeholder="Category name">
+                                </div>
 
-                                    </select>
+                                <div class="form-group">
+                                    <label for="name">Category Description</label>
+                                    <input type="text" class="form-control" id="main_category_description" name="main_category_description" placeholder="Category description">
                                 </div>
 
                                 <div class="col-xs-12 col-sm-12 col-md-12">
                                     <div class="form-group">
                                         <strong>Image:</strong>
-                                        <input type="file" name="fileCollection[]" class="custom-file-input" id="multiImg" multiple="multiple">
-                                        <label class="custom-file-label" for="images">Select File</label>
-                                        <img src="{{asset('/uploads/'.$file->name)}}"  width="70px" />
-{{--                                        <?php foreach (json_decode($file->name) as $pic) { ?>--}}
-{{--                                        <img src="{{asset('/uploads/'.$pic)}}"  width="70px" />--}}
-{{--                                        <?php } ?>--}}
-
+                                        <input type="file" name="main_category_image" class="form-control" placeholder="image">
                                     </div>
                                 </div>
 
-
                             </div>
+                            <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a type="button"  href="{{route('productimage.index')}}" class="btn btn-warning">Back</a>
+                                <a type="button"  href="{{route('maincategory.index')}}" class="btn btn-warning">Back</a>
                             </div>
                         </form>
                     </div>
@@ -88,31 +79,7 @@
         <!-- /.content -->
     </div>
 @endsection
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script>
-    $(function() {
-        var imgPrev = function(input, imgPlaceholder) {
 
-            if (input.files) {
-                var allFiles = input.files.length;
-
-                for (i = 0; i < allFiles; i++) {
-                    var reader = new FileReader();
-
-                    reader.onload = function(event) {
-                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPlaceholder);
-                    }
-
-                    reader.readAsDataURL(input.files[i]);
-                }
-            }
-        };
-
-        $('#multiImg').on('change', function() {
-            imgPrev(this, 'div.preview');
-        });
-    });
-</script>
 @section('footerSection')
     <script src="{{asset('admin/plugins/select2/sel.js')}}"></script>
     <script>

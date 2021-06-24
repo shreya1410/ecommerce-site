@@ -44,56 +44,50 @@
             <!-- Default box -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">Title</h3>
+
 
 
                     <div class="text-center">
-                        <a class='col-lg-offset-5 btn btn-success' href="{{route('product.create')}}"> Add New product</a>
+                        <a class='col-lg-offset-5 btn btn-success' href="{{route('product.create')}}"> <h3>Add New product</h3></a>
                     </div>
 
-                    <div class="card-tools">
-                        <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                            <i class="fas fa-minus"></i>
-                        </button>
-                        <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
+
                 </div>
                 <div class="card-body">
                     <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">DataTable with default features</h3>
-                        </div>
+
                         <!-- /.card-header -->
                         <div class="card-body">
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Sr. No</th>
-                                    <th>product name</th>
-                                    <th>product description</th>
-                                    <th>product price</th>
-                                    <th>Image</th>
-                                    <th>Edit</th>
-                                    <th>Delete</th>
+                                    <th><h2 style="color: #3d0894">Sr. No</h2></th>
+                                    <th><h2 style="color: #3d0894">product name</h2></th>
+                                    <th><h2 style="color: #3d0894">product description</h2></th>
+                                    <th><h2 style="color: #3d0894">product price</h2></th>
+                                    <th><h2 style="color: #3d0894">Image</h2></th>
+                                    <th><h2 style="color: #3d0894">Edit</h2></th>
+                                    <th><h2 style="color: #3d0894">Delete</h2></th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 @foreach($products as $pro)
                                     <tr>
-                                        <td>{{$loop->index +1}}</td>
-                                        <td>{{$pro->name}}</td>
-                                        <td>{{$pro->description}}</td>
-                                        <td>{{$pro->price}}</td>
+                                        <td><h3>{{$loop->index +1}}</h3></td>
+                                        <td><h3>{{$pro->name}}</h3></td>
+                                        <td><h3>{{$pro->description}}</h3></td>
+                                        <td><h3>{{$pro->price}}</h3></td>
 {{--                                        <td><img src="/storage/app/public/{{ $pro->image }}" width="70px"></td>--}}
 {{--                                       <td> <img src="/storage/{{$pro->image}}"></td>--}}
 {{--                                        <td><img src ="{{ asset('storage/'.$pro->image) }}"></td>--}}
 
-                                                <td><img src="{{'/productimg/'.$pro->image}}" alt="{{$pro->image}}" width="70px"></td>
+{{--                                                <td><img src="{{'/productimg/'.$pro->image}}" alt="{{$pro->image}}" width="70px"></td>--}}
 
-
+                                                                                   <td> <?php foreach (json_decode($pro->image) as $pic) { ?>
+                                                                                    <img src="{{asset('/uploads/'.$pic)}}"  width="70px" />
+                                                                                        <?php } ?>
+                                                                                   </td>
 
 
                                         <td><a class="btn btn-warning" href ="{{route('product.edit',$pro->id)}}"> Edit</a></td>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\category;
+use App\Models\main_category;
 use Illuminate\Http\Request;
 use App\Repositories\Category\CategoryRepository;
 
@@ -45,18 +46,19 @@ class categoryController extends Controller
      */
     public function store(Request $request)
     {
-        $attributes = $request->except(['_token']);
+      //  $attributes = $request->except(['_token']);
        // dd($request->except('_token'));
         $this->validate($request,[
            'name'=>'required',
             'category_description'=>'required'
         ]);
-//
-//        $category = new category;
-//        $category->name= $request->name;
-//        $category->save();
 
-      $this->category->create($attributes);
+        $category = new category;
+        $category->name= $request->name;
+        $category->category_description= $request->category_description;
+        $category->save();
+
+    //  $this->category->create($attributes);
 
         return redirect(route('category.index'));
     }
@@ -99,13 +101,13 @@ class categoryController extends Controller
             'category_description'=>'required',
         ]);
 
-//        $category =  category::find($id);
-//        $category->name= $request->name;
-//        $category->category_description= $request->category_description;
-//        $category->save();
+        $category =  category::find($id);
+        $category->name= $request->name;
+        $category->category_description= $request->category_description;
+        $category->save();
 
-        $id= $request->get('id',$id);
-        $this->category->update($id,$request->except('_token'));
+      //  $id= $request->get('id',$id);
+       // $this->category->update($id,$request->except('_token'));
 
         return redirect(route('category.index'));
     }
@@ -118,9 +120,9 @@ class categoryController extends Controller
 //     */
     public function destroy(Request $request,$id)
     {
-      //  category::where('id',$id)->delete();
-        $id= $request->get('id',$id);
-        $this->category->delete($id);
+        category::where('id',$id)->delete();
+//        $id= $request->get('id',$id);
+//        $this->category->delete($id);
         return redirect()->back();
     }
 }
