@@ -39,7 +39,7 @@
                         {{--                            <p class="alert-default-success">{{session('message')}}</p>--}}
                         {{--                        @endif--}}
 
-                        <form role="form" action="{{route('productimage.store')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('image.update',$productImages->id)}}" method="post" enctype="multipart/form-data">
 
                             {{csrf_field()}}
                             <div class="card-body">
@@ -48,7 +48,7 @@
                                     <select  name="product[]"  class="form-control select2 select2-hidden-accessible" multiple=""
                                              data-placeholder="Select a product" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                         @foreach($products as $product)
-                                            <option value="{{$product->name}}">{{$product->name}}</option>
+                                            <option value="{{$product->id}}">{{$product->name}}</option>
                                         @endforeach
 
                                     </select>
@@ -62,18 +62,19 @@
                                 <div class="custom-file">
                                     <input type="file" name="fileCollection[]" class="custom-file-input" id="multiImg" multiple="multiple">
                                     <label class="custom-file-label" for="images">Select File</label>
+                                    <img src="{{asset('/uploads/'.$productImages->image_path)}}"  width="50px" />
                                 </div>
 
-{{--                                <button type="submit" name="submit" class="btn btn-danger btn-block mt-5">--}}
-{{--                                    Upload--}}
-{{--                                </button>--}}
+                                {{--                                <button type="submit" name="submit" class="btn btn-danger btn-block mt-5">--}}
+                                {{--                                    Upload--}}
+                                {{--                                </button>--}}
 
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
                                 <button type="submit" class="btn btn-primary">Submit</button>
-                                <a type="button"  href="{{route('productimage.index')}}" class="btn btn-warning">Back</a>
+                                <a type="button"  href="{{route('image.index')}}" class="btn btn-warning">Back</a>
                             </div>
                         </form>
                     </div>

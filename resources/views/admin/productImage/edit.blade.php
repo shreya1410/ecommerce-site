@@ -61,9 +61,10 @@
                                         <strong>Image:</strong>
                                         <input type="file" name="fileCollection[]" class="custom-file-input" id="multiImg" multiple="multiple">
                                         <label class="custom-file-label" for="images">Select File</label>
-                                        <?php foreach (json_decode($file->name) as $pic) { ?>
-                                        <img src="{{asset('/uploads/'.$pic)}}"  width="70px" />
-                                        <?php } ?>
+                                        <img src="{{asset('/uploads/'.$file->name)}}"  width="70px" />
+{{--                                        <?php foreach (json_decode($file->name) as $pic) { ?>--}}
+{{--                                        <img src="{{asset('/uploads/'.$pic)}}"  width="70px" />--}}
+{{--                                        <?php } ?>--}}
 
                                     </div>
                                 </div>
@@ -90,7 +91,31 @@
         <!-- /.content -->
     </div>
 @endsection
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script>
+    $(function() {
+        var imgPrev = function(input, imgPlaceholder) {
 
+            if (input.files) {
+                var allFiles = input.files.length;
+
+                for (i = 0; i < allFiles; i++) {
+                    var reader = new FileReader();
+
+                    reader.onload = function(event) {
+                        $($.parseHTML('<img>')).attr('src', event.target.result).appendTo(imgPlaceholder);
+                    }
+
+                    reader.readAsDataURL(input.files[i]);
+                }
+            }
+        };
+
+        $('#multiImg').on('change', function() {
+            imgPrev(this, 'div.preview');
+        });
+    });
+</script>
 @section('footerSection')
     <script src="{{asset('admin/plugins/select2/sel.js')}}"></script>
     <script>

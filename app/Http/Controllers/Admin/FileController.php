@@ -32,13 +32,17 @@ class FileController extends Controller
                     $file->move(public_path().'/uploads/', $name);
                     $data[] = $name;
                     $file= new File();
-                    $file->product_id= json_encode($request->product);
+                    $file->product_id= $request->product[0];
                     $file->name=$name;
                     $file->path=$name;
-
                     $file->save();
                 }
-
+//                $file= new File();
+//                $file->product_id= json_encode($request->product);
+//                $file->name=json_encode($data);
+//                $file->path=json_encode($data);
+//
+//                $file->save();
 
               //  $file->product_id= $request->product;
 
@@ -76,12 +80,18 @@ class FileController extends Controller
                     $name = $file->getClientOriginalName();
                     $file->move(public_path().'/uploads/', $name);
                     $data[] = $name;
+                    $file= File::find($id);
+                    $file->product_id= $request->product[0];
+                    $file->name=$name;
+                    $file->path=$name;
+                    $file->save();
+
                 }
-                $file= File::find($id);
-                $file->product_id= json_encode($request->product);
-                $file->name=json_encode($data);
-                $file->path=json_encode($data);
-                $file->save();
+//                $file= File::find($id);
+//                $file->product_id= json_encode($request->product);
+//                $file->name=json_encode($data);
+//                $file->path=json_encode($data);
+//                $file->save();
                 return  redirect(route('productimage.index'));
             }
         }

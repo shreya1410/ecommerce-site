@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\productController;
 use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\productImageController;
+
 
 use App\Http\Controllers\User\UserCategoryController;
 
@@ -33,6 +35,7 @@ Route::resource('admin/product',productController::class);
 Route::resource('admin/adminuser',AdminUserController::class);
 Route::resource('admin/productimage',FileController::class);
 Route::resource('admin/pages',PagesController::class);
+//Route::resource('admin/image',productImageController::class);
 
 
 Route::get('all_categories',[UserCategoryController::class,'all_categories']);
