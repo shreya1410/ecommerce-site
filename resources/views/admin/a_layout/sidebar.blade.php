@@ -22,11 +22,12 @@
                 </a>
                 <ul class="treeview-menu">
                     <li><a href="{{route('maincategory.index')}}"><i class="fa fa-circle-o"></i> Main Category</a></li>
-                    <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Sub Category</a></li>
-                    <li class="active"><a  href="{{route('product.index')}}"><i class="fa fa-circle-o"></i>Product</a></li>
+                    <li><a href="{{route('subcategory.index')}}"><i class="fa fa-circle-o"></i> Sub Category</a></li>
+{{--                    <li><a href="{{route('category.index')}}"><i class="fa fa-circle-o"></i> Sub Category</a></li>--}}
+                    <li class="active"><a  href="{{route('products.index')}}"><i class="fa fa-circle-o"></i>Product</a></li>
 
                     <li><a href="{{route('adminuser.index')}}"><i class="fa fa-circle-o"></i> User</a></li>
-                    <li><a href="{{route('productimage.index')}}"><i class="fa fa-circle-o"></i> Product Image</a></li>
+{{--                    <li><a href="{{route('productimage.index')}}"><i class="fa fa-circle-o"></i> Product Image</a></li>--}}
                     <li><a href="{{route('pages.index')}}"><i class="fa fa-circle-o"></i> Pages</a></li>
 
                 </ul>

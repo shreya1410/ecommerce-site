@@ -39,7 +39,8 @@ class MainCategoryController extends Controller
     {
         $request->validate([
            'main_category_name'=>'required',
-           'main_category_description'=>'required'
+           'main_category_description'=>'required',
+            'main_category_image'=>'required'
         ]);
         $file = $request->file('main_category_image');
         if($file->isvalid())
@@ -95,7 +96,8 @@ class MainCategoryController extends Controller
     {
         $request->validate([
             'main_category_name'=>'required',
-            'main_category_description'=>'required'
+            'main_category_description'=>'required',
+              'main_category_image'=>'required'
         ]);
         $file = $request->file('main_category_image');
         if($file->isvalid())

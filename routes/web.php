@@ -9,6 +9,8 @@ use App\Http\Controllers\Admin\AdminUserController;
 use App\Http\Controllers\Admin\FileController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\MainCategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ProductItemsController;
 
 use App\Http\Controllers\Admin\productImageController;
 
@@ -34,10 +36,12 @@ Route::get('/', function () {
 Route::get('admin/home', [HomeController::class, 'adminHome'])->name('admin.home')->middleware('is_admin');
 
 Route::resource('admin/maincategory',MainCategoryController::class);
-Route::resource('admin/category',categoryController::class);
-Route::resource('admin/product',productController::class);
+Route::resource('admin/subcategory',SubCategoryController::class);
+Route::resource('admin/products',ProductItemsController::class);
+//Route::resource('admin/category',categoryController::class);
+//Route::resource('admin/product',productController::class);
 Route::resource('admin/adminuser',AdminUserController::class);
-Route::resource('admin/productimage',FileController::class);
+//Route::resource('admin/productimage',FileController::class);
 Route::resource('admin/pages',PagesController::class);
 //Route::resource('admin/image',productImageController::class);
 
