@@ -1,7 +1,10 @@
 import HomeComponent from "./components/HomeComponent";
-import ExampleComponent from "./components/ExampleComponent";
+import SliderHomeComponent from "./components/SliderHomeComponent";
 import CategoryComponent from "./components/CategoryComponent";
 import SubCategoryComponent from "./components/SubCategoryComponent";
+import PagesComponent from "./components/PagesComponent";
+import ContactUsComponent from "./components/ContactUsComponent";
+
 
 const route =[
     {
@@ -9,9 +12,10 @@ const route =[
         component :HomeComponent
     },
     {
-        path :'/demo',
-        component :ExampleComponent
+      path : '/sliderhome',
+      component: SliderHomeComponent
     },
+
     {
         path :'/category',
         component: CategoryComponent
@@ -19,6 +23,14 @@ const route =[
     {
         path :'/subcategory/:id',
         component: SubCategoryComponent
+    },
+    {
+        path: '/pages',
+        component: PagesComponent
+    },
+    {
+        path: '/contactus',
+        component: ContactUsComponent
     }
 ];
 

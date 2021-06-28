@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ProductItemsController;
 
 use App\Http\Controllers\Admin\productImageController;
-
+use App\Http\Controllers\ContactUsController;
 
 
 
@@ -44,6 +44,9 @@ Route::resource('admin/adminuser',AdminUserController::class);
 //Route::resource('admin/productimage',FileController::class);
 Route::resource('admin/pages',PagesController::class);
 //Route::resource('admin/image',productImageController::class);
+
+
+
 
 Route::get('/{any}', function () {
     return view('home');

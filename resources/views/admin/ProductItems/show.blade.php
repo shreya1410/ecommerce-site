@@ -30,8 +30,6 @@
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"> <a href="home" class="nav-link">Home</a>
-
-
                         </ol>
                     </div>
                 </div>
@@ -48,7 +46,6 @@
                     <div class="text-center">
                         <a class='col-lg-offset-5 btn btn-success' href="{{route('products.create')}}"><h3> Add New Sub category</h3></a>
                     </div>
-
 
                 </div>
                 <div class="card-body">
@@ -76,7 +73,7 @@
                                     <tr>
                                         <td><h2>{{$loop->index +1}}</h2></td>
                                         <td><h2>{{$product->category_name}}</h2></td>
-                                        <td><h3>{{$product->name}}</h3></td>
+                                        <td ><h3 >{{$product->name}}</h3></td>
                                         <td><h3>{{$product->description}}</h3></td>
                                         <td><h3>{{$product->slug}}</h3></td>
                                         <td><h3>{{$product->price}}</h3></td>
@@ -127,3 +124,4 @@
         <!-- /.content -->
     </div>
 @endsection
+

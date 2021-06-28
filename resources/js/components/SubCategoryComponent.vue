@@ -2,13 +2,18 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <div class="row" >
-                    <div      class="col-sm-6">
+                <div class="form-group">
+                    <input class="form-control me-2" type="search"  v-model="search" placeholder="search" aria-label="search">
+                </div>
+                <div class="row">
+                    <div  v-for="subcategory in filtersubcategory"  class="col-sm-6">
                         <div class="card-deck">
-                            <div class="card">
+                            <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5 class="card-title">Sub Category name  : {{subcategories.sub_category_name}}
-                                       </h5>
+                                    <h5>{{subcategory.sub_category_id}}</h5>
+                                    <h5 class="card-title"  style="text-align: center;font-weight: bold;color: #3d0894;"> {{subcategory.sub_category_name }}</h5>
+                                    <p class="card-text">{{subcategory.sub_category_description }}</p>
+                                    <a href ="#" class="btn btn-primary">{{subcategory.sub_category_name}}</a>
                                 </div>
                             </div>
                         </div>
@@ -25,12 +30,11 @@ export default {
     data()
     {
         return{
-          //  subcategory :[],
-            subcategories :{
-                sub_category_id:'',
-                sub_category_name:'',
-            },
-
+            subcategories :[],
+            search:'',
+            sub_category_id :'',
+            sub_category_name :'',
+            sub_category_description :''
         }
     },
     mounted() {
@@ -42,8 +46,9 @@ export default {
 
             await axios.get('/api/all_sub_categories/' + this.$route.params.id)
                 .then(response => {
-                    this.subcategories.sub_category_name = response.data.sub_category_name;
-                    console.log(response.data);
+                    // this.subcategories.sub_category_name = response.data.sub_category_name;
+                     this.subcategories = response.data;
+                  //  console.log(response.data);
                 })
                 .catch(error => {
                     console.log(error);
@@ -54,6 +59,13 @@ export default {
     },
     created() {
         this.getSubcategory();
+    },
+    computed :{
+        filtersubcategory :function (){
+            return this.subcategories.filter((subcategory)=>{
+                return subcategory.sub_category_name.match(this.search);
+            })
+        }
     }
 
 }
