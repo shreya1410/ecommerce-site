@@ -7,8 +7,14 @@
                         <div class="card-deck">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title"> Category name  :
-                                        <a @click="getcategoryproducts(category.id)" href="#">{{category.name}} </a></h5>
+                                    <h5 class="card-title">
+                                        Category name  :
+                                        <router-link  :to="'/subcategory/'+category.id">  {{category.main_category_name}}</router-link>
+                                    </h5>
+
+                                    <h5 class="card-title">
+                                        Category Description : {{category.main_category_description}}
+                                    </h5>
                                 </div>
                             </div>
                         </div>
@@ -34,9 +40,9 @@ export default {
     },
     methods:{
         getCategories(){
-            axios.get('all_categories')
+            axios.get('/api/all_categories')
             .then(response =>{
-                console.log(response.data);
+               // console.log(response.data);
                 this.categories = response.data;
             })
         },

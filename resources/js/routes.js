@@ -1,6 +1,8 @@
 import HomeComponent from "./components/HomeComponent";
 import ExampleComponent from "./components/ExampleComponent";
 import CategoryComponent from "./components/CategoryComponent";
+import SubCategoryComponent from "./components/SubCategoryComponent";
+
 const route =[
     {
         path :'/Home',
@@ -13,6 +15,10 @@ const route =[
     {
         path :'/category',
         component: CategoryComponent
+    },
+    {
+        path :'/subcategory/:id',
+        component: SubCategoryComponent
     }
 ];
 

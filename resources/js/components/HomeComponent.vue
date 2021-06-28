@@ -13,16 +13,17 @@
 </template>
 
 <script>
-import shop from "../../asset/shop.png";
-import img1 from "../../asset/img1.png";
-import img2 from "../../asset/img2.png";
+import home from "../../asset/home.jpg";
+import phone from "../../asset/phone.jpg";
+import toy from "../../asset/toy.jpg";
+import fashion from "../../asset/fashion.jpg";
 
 
 export default {
     name: "HomeComponent",
     data() {
         return {
-            images: [img1,img2, shop],
+            images: [home,phone,fashion, toy],
                 // "https://www.kindpng.com/imgv/iRxhiTJ_ecommerce-website-images-with-transparent-background-hd-png/",
                 //       "https://unsplash.com/photos/zwsHjakE_iI.png",
                 // "https://cdn.pixabay.com/photo/2016/02/17/23/03/usa-1206240_1280.jpg",

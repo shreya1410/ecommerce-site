@@ -44,11 +44,9 @@
                                     <label for="name">category name</label>
                                     <select  name="maincategory[]"  id="maincategory" class="form-control select2 select2-hidden-accessible" multiple=""
                                              data-placeholder="Select a product" style="width: 100%;" tabindex="-1" aria-hidden="true">
-
-                                    @foreach($maincategory as $maincat)
-                                            <option value="{{$maincat->id}}"
-                                            >{{$maincat->main_category_name}}</option>
-                                        @endforeach
+                                        @foreach($maincategory as $maincat)
+                                            <option value="{{$maincat->id}}">{{$maincat->main_category_name}}</option>
+                                            @endforeach
 
                                     </select>
                                 </div>

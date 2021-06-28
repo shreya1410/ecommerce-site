@@ -22,4 +22,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+Route::get('all_categories',[UserCategoryController::class,'all_categories']);
+Route::get('all_sub_categories/{id}',[UserCategoryController::class,'all_sub_categories']);
 Route::get('all_Category_Products/{id}',[UserCategoryController::class,'allCategoryProducts']);
+
+
+
+

@@ -15,7 +15,7 @@ use App\Http\Controllers\Admin\ProductItemsController;
 use App\Http\Controllers\Admin\productImageController;
 
 
-use App\Http\Controllers\User\UserCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +45,9 @@ Route::resource('admin/adminuser',AdminUserController::class);
 Route::resource('admin/pages',PagesController::class);
 //Route::resource('admin/image',productImageController::class);
 
-
-Route::get('all_categories',[UserCategoryController::class,'all_categories']);
-Route::get('all_Category_Products',[UserCategoryController::class,'allCategoryProducts']);
+Route::get('/{any}', function () {
+    return view('home');
+})->where('any', '.*');
 
 Auth::routes();
 
