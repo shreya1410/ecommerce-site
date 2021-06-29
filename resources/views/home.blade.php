@@ -52,7 +52,6 @@
                         <div class="navbar-nav">
                             <router-link :to ="'/Home'" class="nav-link" aria-current="page" >Home</router-link>
                             <router-link :to="'/category'" class="nav-link" >Category</router-link>
-                            <a href="#"  class="nav-link" >Products</a>
                             <router-link :to ="'/pages'" class="nav-link">About Us</router-link>
                             <router-link :to ="'/contactus'" class="nav-link">Contact Us</router-link>
                         </div>

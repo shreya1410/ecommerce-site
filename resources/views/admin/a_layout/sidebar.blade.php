@@ -29,6 +29,7 @@
                     <li><a href="{{route('adminuser.index')}}"><i class="fa fa-circle-o"></i> User</a></li>
 {{--                    <li><a href="{{route('productimage.index')}}"><i class="fa fa-circle-o"></i> Product Image</a></li>--}}
                     <li><a href="{{route('pages.index')}}"><i class="fa fa-circle-o"></i> Pages</a></li>
+                    <li><a href="{{route('contacts')}}"><i class="fa fa-circle-o"></i> Contacts</a></li>
 
                 </ul>
             </li>

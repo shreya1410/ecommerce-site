@@ -16,13 +16,8 @@
                                     <router-link  :to="'/subcategory/'+category.id" class="btn btn-primary"  >{{category.main_category_name}}</router-link>
                                 </div>
                             </div>
-
                         </div>
                     </div>
-
-
-
-
                 </div>
             </div>
         </div>

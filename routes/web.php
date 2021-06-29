@@ -45,7 +45,7 @@ Route::resource('admin/adminuser',AdminUserController::class);
 Route::resource('admin/pages',PagesController::class);
 //Route::resource('admin/image',productImageController::class);
 
-
+Route::get('/contacts',[ContactUsController::class,'contacts'])->name('contacts');
 
 
 Route::get('/{any}', function () {

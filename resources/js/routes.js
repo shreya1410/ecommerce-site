@@ -4,7 +4,7 @@ import CategoryComponent from "./components/CategoryComponent";
 import SubCategoryComponent from "./components/SubCategoryComponent";
 import PagesComponent from "./components/PagesComponent";
 import ContactUsComponent from "./components/ContactUsComponent";
-
+import ProductsComponent from "./components/ProductsComponent";
 
 const route =[
     {
@@ -23,6 +23,10 @@ const route =[
     {
         path :'/subcategory/:id',
         component: SubCategoryComponent
+    },
+    {
+        path:'/products/:id',
+        component: ProductsComponent
     },
     {
         path: '/pages',

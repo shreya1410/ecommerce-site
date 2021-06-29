@@ -10,10 +10,9 @@
                         <div class="card-deck">
                             <div class="card" style="width: 18rem;">
                                 <div class="card-body">
-                                    <h5>{{subcategory.sub_category_id}}</h5>
                                     <h5 class="card-title"  style="text-align: center;font-weight: bold;color: #3d0894;"> {{subcategory.sub_category_name }}</h5>
                                     <p class="card-text">{{subcategory.sub_category_description }}</p>
-                                    <a href ="#" class="btn btn-primary">{{subcategory.sub_category_name}}</a>
+                                    <router-link :to="'/products/'+subcategory.sub_category_id" class="btn btn-primary">{{subcategory.sub_category_name}}</router-link>
                                 </div>
                             </div>
                         </div>
