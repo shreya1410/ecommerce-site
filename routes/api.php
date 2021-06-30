@@ -26,6 +26,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('all_categories',[UserCategoryController::class,'all_categories']);
 Route::get('all_sub_categories/{id}',[UserCategoryController::class,'all_sub_categories']);
 Route::get('products/{id}',[UserCategoryController::class,'product_by_subcategory']);
+Route::get('productdetail/{slug}',[UserCategoryController::class,'productdetail']);
 //Route::get('all_Category_Products/{id}',[UserCategoryController::class,'allCategoryProducts']);
 
 Route::get('all_pages',[UserCategoryController::class,'all_pages']);

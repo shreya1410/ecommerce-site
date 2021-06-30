@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    <title>Shopper's Stop</title>
     @include('admin/a_layout/head')
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">

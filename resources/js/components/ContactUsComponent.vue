@@ -4,10 +4,17 @@
         <div class="separator"></div>
 
         <form class="form" novalidate @submit.prevent="submitForm">
-            <input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off">
-            <input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off">
-            <input required name="subject" v-model="contact.subject" placeholder="Subject" type="text" autocomplete="off">
-            <textarea name="message" v-model="contact.message" rows="4" placeholder="Message"></textarea>
+
+                <input required name="name" v-model='contact.name' placeholder="Name" type="text" autocomplete="off" style="border-color: #0f0f0f">
+
+
+                <input required name="email" v-model="contact.email" placeholder="E-mail" type="email" autocomplete="off" style="border-color: #0f0f0f">
+
+
+                <input required name="subject" v-model="contact.subject" placeholder="Subject" type="text" autocomplete="off" style="border-color: #0f0f0f">
+
+                <textarea name="message" v-model="contact.message" rows="4" placeholder="Message" style="border-color: #0f0f0f"></textarea>
+
             <button class="button">Send</button>
         </form>
     </div>

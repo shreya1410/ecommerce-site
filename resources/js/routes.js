@@ -5,6 +5,8 @@ import SubCategoryComponent from "./components/SubCategoryComponent";
 import PagesComponent from "./components/PagesComponent";
 import ContactUsComponent from "./components/ContactUsComponent";
 import ProductsComponent from "./components/ProductsComponent";
+import ProductDetail from "./components/ProductDetail";
+
 
 const route =[
     {
@@ -35,6 +37,10 @@ const route =[
     {
         path: '/contactus',
         component: ContactUsComponent
+    },
+    {
+        path :'/productdetail/:slug',
+        component: ProductDetail
     }
 ];
 

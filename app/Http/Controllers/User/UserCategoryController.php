@@ -38,5 +38,11 @@ class UserCategoryController extends Controller
         return response()->json($pages);
     }
 
+    public function productdetail($slug)
+    {
+        $productdetail = product_item::where('slug',$slug)->get();
+        return response()->json($productdetail);
+    }
+
 
 }

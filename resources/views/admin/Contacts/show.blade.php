@@ -27,13 +27,11 @@
             <div class="container-fluid">
                 <div class="row mb-2">
 
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"> <a href="home" class="nav-link">Home</a>
-
-
-                        </ol>
-                    </div>
+{{--                    <div class="col-sm-6">--}}
+{{--                        <ol class="breadcrumb float-sm-right">--}}
+{{--                            <li class="breadcrumb-item"> <a href="home" class="nav-link">Home</a>--}}
+{{--                        </ol>--}}
+{{--                    </div>--}}
                 </div>
             </div><!-- /.container-fluid -->
         </section>

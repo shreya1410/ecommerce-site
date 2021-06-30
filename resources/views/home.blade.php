@@ -51,6 +51,7 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <div class="navbar-nav">
                             <router-link :to ="'/Home'" class="nav-link" aria-current="page" >Home</router-link>
+                            <router-link :to ="'/sliderhome'" class="nav-link" aria-current="page" >Slider</router-link>
                             <router-link :to="'/category'" class="nav-link" >Category</router-link>
                             <router-link :to ="'/pages'" class="nav-link">About Us</router-link>
                             <router-link :to ="'/contactus'" class="nav-link">Contact Us</router-link>
